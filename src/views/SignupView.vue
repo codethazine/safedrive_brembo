@@ -4,20 +4,24 @@
             <div class="form-container">
             <form @submit.prevent="signUp">
                 <h3 style="text-align: center;"><b>Signup to Your Account</b></h3>
-                <p style="color: #7F7F7F; text-align: center;">Signup using social networks</p>
-                <div class="social-container">
-                    <div @click="loginWithSocial('Google')" style="display: flex; justify-content: space-between;" class="text-center btn btn-dark btn-horiz-social">
-                        <a href="#" style="display: absolute; color: white; margin-left: 0"><i class="fab fa-google"></i></a>
-                        Google
-                        <a href="#" style="display: absolute; color: transparent; margin-left: 0"><i class="fab fa-google"></i></a>
-                    </div>
-                    <div @click="loginWithSocial('Facebook')" style="display: flex; justify-content: space-between;" class="text-center btn btn-dark btn-horiz-social">
-                        <a href="#" style="display: absolute; color: white; margin-left: 0"><i class="fab fa-facebook"></i></a>
-                        Facebook
-                        <a href="#" style="display: absolute; color: transparent; margin-left: 0"><i class="fab fa-facebook"></i></a>
-                    </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="driver" value="driver" v-model="picked" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        I'm a driver
+                    </label>
+                </div>   
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="insurance" value="insurance" v-model="picked">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        I'm an insurance company
+                    </label>
                 </div>
-                <p class="or-option-login">Or</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="manufacturer" value="manufacturer" v-model="picked">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        I'm a car manufacturer
+                    </label>
+                </div>         
                 <div class="form-group">
                     <input type="text" class="form-control" v-model="email" placeholder="Email">
                 </div>
@@ -73,7 +77,8 @@ export default {
             code: "",
             passwordFieldType: "password",
             strength: 0,
-            tosprivacy: false
+            tosprivacy: false,
+            picked: "driver"
         }
     },
     methods: {
@@ -121,6 +126,11 @@ export default {
                     message: "You must agree to the Terms of Service and Privacy Policy"
                 }
             }
+            if (this.picked != "driver") {
+                return this.error = {
+                    message: "You must be a driver to sign up. Insurance and manufacturer accounts are not yet available. Contact us at signup@safedriver.io for more information."
+                }
+            }
             try {
                 await this.$store.dispatch("auth/signUp", {
                 email: this.email,
@@ -146,7 +156,7 @@ export default {
                 email,
                 password,
                 });
-                this.$router.push("/my-collections");
+                this.$router.push("/dashboard");
             } catch (error) {
                 console.log(error);
                 this.error = error;
@@ -172,8 +182,9 @@ export default {
   align-items: center;
   min-height: 87vh;
   flex-direction: column;
-  background-image: url('../assets/safedrive-bg.jpeg');  
+  background-image: url('../assets/safedrive-bg.jpg');  
   background-size: cover;
+  margin-bottom: -3rem;
 }
 
 .form-container {
@@ -305,7 +316,7 @@ export default {
     margin-top: 10px;
 }
 .error-msg {
-    margin-top: 10px;
+    margin-top: 20px;
     color: #dc3545;
     font-size: 0.8em;
 }

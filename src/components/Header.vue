@@ -11,7 +11,7 @@
     </div>
     <div class="right-header">
         <div v-if="user">
-            <router-link to="/dashboard">
+            <router-link class="header-link" to="/dashboard">
                 Dashboard
             </router-link>
             <div style="color: white;" class="btn btn-secondary">

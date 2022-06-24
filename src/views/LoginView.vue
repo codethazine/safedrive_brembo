@@ -3,7 +3,6 @@
         <div class="login-section">
             <form @submit.prevent="login">
                 <h3><b>Login to Your Account</b></h3>
-                <p style="color: #7F7F7F; text-align: center;">Login using social networks</p>
                 <div class="form-group">
                     <input type="text" class="form-control" id="email" v-model="email" placeholder="Email">
                 </div>
@@ -20,10 +19,10 @@
         </div>
         <div class="signup-container">
             <h3><b>New here?</b></h3>
-            <p class="descr-message text-center">Sign up and join the Web3 revolution
+            <p class="descr-message text-center">Sign up and join the Sensify revolution
             </p>
             <div class="text-center">
-                <router-link to="/sign-up" class="homepage-button">
+                <router-link to="/signup" class="homepage-button">
                     <button class="btn btn-signup btn-dark btn-block">Sign Up</button>
                 </router-link>
             </div>
@@ -89,6 +88,7 @@ export default {
 .login-container {
     display: flex;
     flex-direction: row;
+    padding: 0px;
 }
 
 .login-section {
@@ -108,8 +108,9 @@ export default {
     min-height: 88vh;
     flex-direction: column;
     background-size: cover;
-    background-image: url('../assets/safedrive-bg.jpeg');
+    background-image: url('../assets/safedrive-bg.jpg');
     width: 40%;
+    margin-bottom: -3rem;
 }
 
 .form-control {

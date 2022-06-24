@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "safedrivebrembo4b739350_identitypool_4b739350",
-    "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "safedr4b739350",
-    "userPoolName": "safedrivebrembo4b739350_userpool_4b739350",
+    "identityPoolName": "safedrivebrembo65b62baa_identitypool_65b62baa",
+    "allowUnauthenticatedIdentities": true,
+    "resourceNameTruncated": "safedr65b62baa",
+    "userPoolName": "safedrivebrembo65b62baa_userpool_65b62baa",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,10 +31,10 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "safedr4b739350_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "safedr65b62baa_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "4b739350",
-    "resourceName": "safedrivebrembo4b739350",
+    "sharedId": "65b62baa",
+    "resourceName": "safedrivebrembo65b62baa",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "default",
     "usernameAttributes": [
@@ -43,6 +43,20 @@
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
-    "useEnabledMfas": true
+    "useEnabledMfas": true,
+    "authRoleArn": {
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
+    },
+    "breakCircularDependency": true,
+    "dependsOn": []
   }
 }

@@ -1,0 +1,18 @@
+{
+  "resourceName": "safedriveStorage",
+  "policyUUID": "b6844029",
+  "bucketName": "safedrivebrembo14c377974cda44a08c934aaa317f9cb6",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

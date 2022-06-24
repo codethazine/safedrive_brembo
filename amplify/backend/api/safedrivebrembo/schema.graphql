@@ -1,0 +1,42 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+type SensifyInputData @model {
+  id: ID!
+  AccX: Float
+  AccY: Float
+  AccZ: Float
+  GyroX: Float
+  GyroY: Float
+  GyroZ: Float
+  pedal_pos: Float
+  wheel_speed_fr: Float
+  wheel_speed_fl: Float
+  wheel_speed_rr: Float
+  wheel_speed_rl: Float
+  gps_lat: Float
+  gps_lon: Float
+  sprint: Float
+  delta_wheel_speed: Float
+}
+
+type SensifyPredictionData @model {
+  id: ID!
+  AccX: Float
+  AccY: Float
+  AccZ: Float
+  GyroX: Float
+  GyroY: Float
+  GyroZ: Float
+  pedal_pos: Float
+  wheel_speed_fr: Float
+  wheel_speed_fl: Float
+  wheel_speed_rr: Float
+  wheel_speed_rl: Float
+  gps_lat: Float
+  gps_lon: Float
+  sprint: Float
+  delta_wheel_speed: Float
+  safety_score: Float
+}
