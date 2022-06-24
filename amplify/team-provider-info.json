@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-safedrivebrembo-dev-213545-authRole",
+      "UnauthRoleArn": "arn:aws:iam::939068358726:role/amplify-safedrivebrembo-dev-213545-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::939068358726:role/amplify-safedrivebrembo-dev-213545-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-safedrivebrembo-dev-213545-deployment",
+      "UnauthRoleName": "amplify-safedrivebrembo-dev-213545-unauthRole",
+      "StackName": "amplify-safedrivebrembo-dev-213545",
+      "StackId": "arn:aws:cloudformation:us-east-1:939068358726:stack/amplify-safedrivebrembo-dev-213545/d90f2160-f3f4-11ec-ba0e-0a7ee2273e9b",
+      "AmplifyAppId": "d33i4g2duott3m"
+    },
+    "categories": {
+      "auth": {
+        "safedrivebrembo4b739350": {}
+      }
+    }
+  }
+}
