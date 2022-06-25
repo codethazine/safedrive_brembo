@@ -7,7 +7,7 @@
               <option v-bind:key="collection.id" v-for="collection in getOnlyGenerated(this.collections)" :value="collection">{{collection.name}}</option>
             </select>
           </div>
-    </div>--->
+    </div>
         <div class = "insights">
             <div class = "anag thirty-percent">
                 <div class = "middle">
