@@ -14,7 +14,7 @@
             <router-link class="header-link" to="/dashboard">
                 Dashboard
             </router-link>
-            <div style="color: white;" class="btn btn-secondary">
+            <div @click="logout" style="color: white;" class="btn btn-secondary">
                 Log out
             </div>
         </div>
@@ -29,6 +29,29 @@
             </a>
         </div>
     </div>
+    <div @click="openMobileHeader()" class="burger-menu" style="display: none">
+      <div class="burger-menu-icon">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+    <div @click="this.isMobileHeaderOpen = false;" v-if="isMobileHeaderOpen" class="mobile-header-container">
+        <div class="mobile-header">
+        <i style="cursor: pointer; margin-left: 0px !important;" class="material-icons" @click="this.isMobileHeaderOpen = false;">clear</i>
+        <router-link to="/">HOME</router-link>
+        <div class="mobile-header-links">
+            <router-link to="/my-collections">NFT GENERATOR</router-link>
+            <router-link to="/collection-deployer">NFT DEPLOYER</router-link>
+            <router-link :to="{ path: '/', hash: '#features' }">FEATURES</router-link>
+            <router-link :to="{ path: '/', hash: '#pricing' }">PRICING</router-link>
+        </div>
+        <div class="mobile-header-links">
+            <router-link v-if="!user" to="/log-in">LOG-IN</router-link>
+            <router-link v-if="!user" to="/my-collections/untitled-collection-1">GET STARTED</router-link>
+            <router-link v-if="user" to="/account">ACCOUNT</router-link>
+            <a style="cursor: pointer" v-if="user" @click="logout">SIGN-OUT</a>
+        </div>
+    </div>
+    </div>
   </nav>
 </template>
 
@@ -41,6 +64,11 @@ import { CognitoHostedUIIdentityProvider } from '@aws-amplify/auth';
 
 // @ is an alias to /src
 export default {
+    data() {
+        return {
+        isMobileHeaderOpen: false,
+        };
+    },
     name: 'Header',
     components: {},
     computed: {
@@ -48,6 +76,16 @@ export default {
         user: "auth/user",
         }),
     },
+    methods: {
+        async logout() {
+            await this.$store.dispatch("auth/logout");
+            this.$store.commit("collectionsInfo/setCollections", null);
+            this.$router.push("/");
+        },
+        openMobileHeader() {
+            this.isMobileHeaderOpen = !this.isMobileHeaderOpen;
+        },
+    }
 }
 </script>
 
@@ -61,6 +99,10 @@ export default {
     background-color: #fff;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 2;
+}
+
+.mobile-header-container a {
+    text-decoration: none;
 }
 .header-logo {
     width: auto;
@@ -102,5 +144,47 @@ i {
     margin-left: 20px;
     color: #454c55;
 }
+
+.mobile-header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  z-index: 103;
+  padding: 10px;
+}
+.mobile-header {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mobile-header-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 850px) {
+  .center-header {
+    display: none;
+  }
+  .right-header {
+    display: none;
+  }
+  .burger-menu {
+    display: block !important;
+  }
+}
+
 
 </style>

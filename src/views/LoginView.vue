@@ -33,12 +33,19 @@
 import { mapActions } from "vuex";
 import { Auth } from 'aws-amplify';
 import { CognitoHostedUIIdentityProvider } from '@aws-amplify/auth';
+import { mapGetters } from 'vuex';
 
 
 // @ is an alias to /src
 export default {
   name: 'LoginView',
   components: {},
+  // If there is a user on login redirect to dashboard
+  mounted() {
+    if (this.user) {
+      this.$router.push('/dashboard');
+    }
+  },
   data() {
         return {
             email: "",
@@ -78,7 +85,12 @@ export default {
                 //await this.loginSocial(user);      
             }
         },
-    }
+    },
+    computed: {
+    ...mapGetters({
+        user: "auth/user",
+        }),
+    },
 }
 
 

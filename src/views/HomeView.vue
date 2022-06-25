@@ -8,16 +8,16 @@
         <p>Tailored insurance packages for enhanced driver safety.
           <br>Powered by Sensify.
         </p>
-        <router-link class="typed-logo" to="/get-started">
+        <router-link class="typed-logo" to="/login">
           <button class="btn btn-primary home-button">Get Started</button>
         </router-link>
-        <router-link class="typed-logo" to="/explore">
-          <button class="btn btn-light home-button">Explore</button>
+        <router-link class="header-link" :to="{ path: '/', hash: '#technology' }">
+          <button class="btn btn-light home-button">Learn more</button>
         </router-link>
       </div>
      
       <div class="content-right">
-        <img class="img-dash" src="../assets/dashboard_screenshot.jpg">
+        <img class="img-dash" src="../assets/dashboard_screenshot.jpeg">
        </div>
     </div>
 
@@ -35,12 +35,9 @@
             <br>We use that data to determine what your driving style is.
           </p>
         </div>
+        <img style="height: 50%;" src="../assets/architecture-transparent.png">
       </div>
     </section>
-
-
-
-
       <section id = 'team'>
         <div class="teamintro">
           <h1>Data Driven & Dangerous</h1>
@@ -82,7 +79,7 @@
         </p>
         <div class="faqs-title-line">
             Can't find the answer to your question? <br>
-            Send us an e-mail at <a style="color: black" href="mailto:hello@safedrive.ml"> 'hello@safedrive.ml'</a> and we will get back to you as soon as possible!
+            Send us an e-mail at <a style="color: black" href="mailto:hello@safedrive.ml">hello@safedrive.ml</a> and we will get back to you as soon as possible!
         </div>
       </div>
       <div class="faqs-desc">
@@ -90,14 +87,26 @@
           <div id="question1" class="faq-question">
             <input id="q1" type="checkbox" class="panel">
             <div class="plus">+</div>
-            <label for="q1" class="panel-title">How do I benefit from SafeDrive? </label><muted fontsize = 10>~SkepticalUser123</muted>
-            <div class="panel-content">As a car driver, you get to save money on your insurance, transparency on the pricing method, and feedback on your driving style.</div>
+            <label for="q1" class="panel-title">How do drivers benefit from SafeDrive? </label>
+            <div class="panel-content">Drivers get to save money on their insurance, transparency on the pricing method, and feedback on their driving style.</div>
           </div>
           <div class="faq-question">
             <input id="q2" type="checkbox" class="panel">
             <div class="plus">+</div>
-            <label for="q2" class="panel-title">How will my data be handled?</label>
-            <div class="panel-content">We believe in total transparency when it comes to your data. Every step of the processing will be taken with explicit consent and in compliacne with the GDPR.</div>
+            <label for="q2" class="panel-title">How do Insurance Companies benefit from SafeDrive? </label>
+            <div class="panel-content">Insurance companies save money on insurance claims, blackbox installation and maintance and provide a better product, that's tailored to it's users needs.</div>
+          </div>
+          <div class="faq-question">
+            <input id="q4" type="checkbox" class="panel">
+            <div class="plus">+</div>
+            <label for="q4" class="panel-title">What's different from previous car insurance tech?</label>
+            <div class="panel-content">SafeDrive, through Sensify collects more data, thus giving a more complete analysis of the accidents. This comes also with a real-time analysis of cases in which a driver should be careful and drive better, to avoid accidents. Another difference is that Sensify comes pre-build with the auto, thus it doesn't require additional manufacturing and maintance on the insurers part, like a blackbox for example.</div>
+          </div>
+          <div class="faq-question" style="border-bottom: 0px;">
+            <input id="q3" type="checkbox" class="panel">
+            <div class="plus">+</div>
+            <label for="q3" class="panel-title">How will drivers data be handled?</label>
+            <div class="panel-content">SafeDrive information security policies are guided by recognized international security standards and reference best practices to the largest extent possible. SafeDrive borrow best practices from COBIT and these ISO standards: 27001 (international information security standard), 27005 (information security risk management), 27701 (privacy information management systems / GDPR) and 27014 (governance of information security).</div>
           </div>
         </div>
       </div>
@@ -121,8 +130,8 @@ export default {
 }
 
 .img-dash {
-  height: 110%;
-  width: 110%;
+  height: auto;
+  width: 100%;
   border-radius:15px
 }
 
@@ -134,7 +143,7 @@ export default {
     position: absolute;
     overflow: hidden;
     background-size: cover;
-    background-image: url('C:\Users\carlo\Desktop\HACKATHON\safedrive_brembo-1\src\assets\tesla_sensify.jpg');
+    background-image: url('../assets/tesla_sensify.jpg');
     background-color: rgb(255, 255, 255);
     background-position: center center;
     opacity: 0.5;
@@ -179,13 +188,13 @@ export default {
 }
 .tech-content{
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   height: 83vh;
 }
 #team{
-  padding: 20px 0px;
+  padding: 60px 0px;
 }
 .teamintro{
   color: coral;
@@ -226,8 +235,8 @@ export default {
 .cards-container{
   display: flex;
   justify-content: center;
-  height: 83vh;
   flex-wrap: wrap;
+  margin: 20 20px;
 }
 .card-img{
   height: 300px;
@@ -236,13 +245,13 @@ export default {
   border-radius: 15px 15px 0 0
 }
 .card-1{
-  background-image: url();
+  background-image: url("../assets/brembo-dario.jpg");
 }
 .card-2{
-  background-image: url();
+  background-image: url("../assets/brembo-carlo.jpg");
 }
 .card-3{
-  background-image: url();
+  background-image: url("../assets/brembo-joan.jpg");
 }
 .card:hover{
   background-color: coral;
@@ -254,7 +263,7 @@ export default {
   text-align:right;
   position:relative;
   justify-content: right;
-  background-image: url('C:\Users\carlo\Desktop\HACKATHON\safedrive_brembo-1\src\assets\dashboard_screenshot.jpg');
+  background-image: url('../assets/dashboard_screenshot.jpeg');
   background-size: contain;
   flex-wrap: wrap;
 }
