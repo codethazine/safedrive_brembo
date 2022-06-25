@@ -8,9 +8,12 @@
   },
   "dependencies": {
     "@aws-amplify/ui-vue": "^2.4.11",
+    "@fawmi/vue-google-maps": "^0.9.72",
+    "@mdi/js": "^6.7.96",
     "aws-amplify": "^4.3.26",
     "core-js": "^3.8.3",
     "vue": "^3.2.13",
+    "vue-material-design-icons": "^5.0.0",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
   },
