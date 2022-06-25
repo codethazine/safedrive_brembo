@@ -50,7 +50,7 @@
                         </div>
                         <img class="car-logo" alt="car-logo" :src="require(`/logos/optimized/${this.manufacturer.toLowerCase()}.png`)" width="120" height="80">
                     </div>
-                    <small class = "text-muted">Insurance issued on: 11-11-1111 </small>
+                    <small class = "text-muted">Insurance issued on: 06-11-2021 </small>
                 </div>
             <!-----------End of c1 ----------->
                 <div class = "ds">
@@ -113,9 +113,14 @@
 </template>
 
 <script>
+
+
 export default {
 
   name: 'App',
+  mounted: {
+
+  },
   data() {
     return {
       center: {lat: 41.902782, lng: 12.496366},
@@ -132,9 +137,9 @@ export default {
                 {it : "Time"},
                 {it : "Speed"},
                 ],
-      history : [{t : ["Rome", "11-11-1111", "73kmh"]},
-                {t : ["Rome", "22-22-2222", "734kmh"]},
-                {t : ["Rome", "33-33-3333", "735kmh"]}],
+      history : [{t : ["Rome", "11-11-2012", "73kmh"]},
+                {t : ["Rome", "22-02-2004", "34kmh"]},
+                {t : ["Rome", "31-07-2022", "95kmh"]}],
       markers: [
         {
           position: {
