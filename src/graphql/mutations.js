@@ -8,6 +8,7 @@ export const createSensifyInputData = /* GraphQL */ `
   ) {
     createSensifyInputData(input: $input, condition: $condition) {
       id
+      driver_id
       AccX
       AccY
       AccZ
@@ -35,6 +36,7 @@ export const updateSensifyInputData = /* GraphQL */ `
   ) {
     updateSensifyInputData(input: $input, condition: $condition) {
       id
+      driver_id
       AccX
       AccY
       AccZ
@@ -62,6 +64,7 @@ export const deleteSensifyInputData = /* GraphQL */ `
   ) {
     deleteSensifyInputData(input: $input, condition: $condition) {
       id
+      driver_id
       AccX
       AccY
       AccZ
@@ -89,6 +92,7 @@ export const createSensifyPredictionData = /* GraphQL */ `
   ) {
     createSensifyPredictionData(input: $input, condition: $condition) {
       id
+      driver_id
       AccX
       AccY
       AccZ
@@ -117,6 +121,7 @@ export const updateSensifyPredictionData = /* GraphQL */ `
   ) {
     updateSensifyPredictionData(input: $input, condition: $condition) {
       id
+      driver_id
       AccX
       AccY
       AccZ
@@ -145,6 +150,7 @@ export const deleteSensifyPredictionData = /* GraphQL */ `
   ) {
     deleteSensifyPredictionData(input: $input, condition: $condition) {
       id
+      driver_id
       AccX
       AccY
       AccZ

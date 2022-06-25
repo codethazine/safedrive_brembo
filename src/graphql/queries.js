@@ -5,6 +5,7 @@ export const getSensifyInputData = /* GraphQL */ `
   query GetSensifyInputData($id: ID!) {
     getSensifyInputData(id: $id) {
       id
+      driver_id
       AccX
       AccY
       AccZ
@@ -38,6 +39,7 @@ export const listSensifyInputData = /* GraphQL */ `
     ) {
       items {
         id
+        driver_id
         AccX
         AccY
         AccZ
@@ -64,6 +66,7 @@ export const getSensifyPredictionData = /* GraphQL */ `
   query GetSensifyPredictionData($id: ID!) {
     getSensifyPredictionData(id: $id) {
       id
+      driver_id
       AccX
       AccY
       AccZ
@@ -98,6 +101,7 @@ export const listSensifyPredictionData = /* GraphQL */ `
     ) {
       items {
         id
+        driver_id
         AccX
         AccY
         AccZ
