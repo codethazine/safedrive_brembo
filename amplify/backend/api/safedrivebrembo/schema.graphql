@@ -20,6 +20,8 @@ type SensifyInputData @model {
   gps_lon: Float
   sprint: Float
   delta_wheel_speed: Float
+  createdAt: String
+  updatedAt: String
 }
 
 type SensifyPredictionData @model {
@@ -41,6 +43,8 @@ type SensifyPredictionData @model {
   sprint: Float
   delta_wheel_speed: Float
   safety_score: Float
+  createdAt: String
+  updatedAt: String
 }
 
 type CustomerData @model {
@@ -53,4 +57,6 @@ type CustomerData @model {
   car_model: String
   plate_number: String
   n_accidents: Int
+  createdAt: String
+  updatedAt: String
 }

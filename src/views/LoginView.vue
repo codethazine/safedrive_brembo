@@ -70,7 +70,7 @@ export default {
                 email: this.email,
                 password: this.password,
                 });
-                this.$router.push("/my-collections");
+                this.$router.push("/dashboard");
             } catch (error) {
                 this.error = error;
             }

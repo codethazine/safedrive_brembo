@@ -162,8 +162,6 @@ export default {
 .home-button {
   margin-right: 10px;
 }
-#technology{
-}
 .tech-background-container {
     width: 100%;
     height: 83vh;
