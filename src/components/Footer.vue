@@ -5,7 +5,7 @@
         <router-link to="/terms-of-service">Terms of Service</router-link>
         <router-link to="/privacy-policy">Privacy Policy</router-link>
     </div> 
-    <a class="support-email" href="mailto:hello@safedrive.io">hello@safedrive.io</a> 
+    <a class="support-email" href="mailto:hello@safedrive.ml">hello@safedrive.ml</a> 
   </nav>
 </template>
 

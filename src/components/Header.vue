@@ -24,7 +24,7 @@
                     Login
                 </div>
             </router-link>
-            <a href="mailto:hello@safedrive.io" style="color: black; margin-left: 10px;">
+            <a href="mailto:hello@safedrive.ml" style="color: black; margin-left: 10px;">
                 Contact Us
             </a>
         </div>

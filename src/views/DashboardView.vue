@@ -1,13 +1,18 @@
 <template>
     <div class="dashboard-wrapper">
     <div v-if="!this.business_user" class="dropdown">
-        <div>Business User</div>
-        <div class="form-group-dropdown">
-            <select class="form-control" v-model="this.CustomerData">
-              <option value="">Select a collection</option>
-              <option v-bind:key="Customer.id" v-for="Customer in this.CustomerData" :value="Customer">{{Customer.name}}</option>
-            </select>
-          </div>
+        <div>
+            <div style="font-size: 2.5rem; font-weight: bold;">Business Dashboard</div>
+            <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; width: 100%;">
+            <div style="font-size: 2.5rem; font-family: 'Times New Roman', Times, serif; color: #c11c16;">Principali</div>
+            <div style="width: 70%" class="form-group-dropdown">
+                <select class="form-control" v-model="this.selectedDriver">
+                <option value="">Select a driver</option>
+                <option v-bind:key="customer.id" v-for="customer in this.JoinedPredictionData" :value="customer">{{customer.firstname}} {{customer.lastname}} - {{customer.plate_number}}</option>
+                </select>
+            </div>
+            </div>
+        </div>
     </div>
         <div class = "insights">
             <div class = "anag thirty-percent">
@@ -16,19 +21,19 @@
                         <h4>Anagraphics</h4>
                         <div class="dashtext-container">
                             <div class="dashtext-title">ID</div> 
-                            <div>{{this.id}}</div>
+                            <div>{{this.selectedDriver.id}}</div>
                         </div>
                         <div class="dashtext-container">
                             <div class="dashtext-title">Name</div> 
-                            <div>{{this.name}}</div>
+                            <div>{{this.selectedDriver.firstname}}</div>
                         </div>
                         <div class="dashtext-container">
                             <div class="dashtext-title">Surname</div> 
-                            <div>{{this.surname}}</div>
+                            <div>{{this.selectedDriver.lastname}}</div>
                         </div>
                         <div class="dashtext-container">
                             <div class="dashtext-title">Date of Birth</div> 
-                            <div>{{this.dateofbirth}}</div>
+                            <div>{{this.selectedDriver.birthday}}</div>
                         </div>
                     </div>
                     <i class="material-icons" style="font-size: 60px;">
@@ -43,14 +48,14 @@
                         <h4>My Car</h4>
                         <div class="car-container">
                             <div class="car-title">Manufacturer:</div> 
-                            <div>{{this.manufacturer}}</div>
+                            <div>{{this.selectedDriver.oem}}</div>
                         </div>
                         <div class="car-container">
                             <div class="car-model">Model: </div> 
-                            <div>{{this.model}}</div>
+                            <div>{{this.selectedDriver.car_model}}</div>
                         </div>
                     </div>
-                        <img class="car-logo" alt="car-logo" :src="require(`/logos/${this.manufacturer.toLowerCase()}.png`)" width="120" height="80">
+                        <img v-if="this.selectedDriver.oem" class="car-logo" alt="car-logo" :src="require(`/logos/${this.selectedDriver.oem.toLowerCase()}.png`)" width="120" height="80">
                 </div>
                 <small class = "text-muted">Insurance issued on: 06-11-2021 </small>
             </div>
@@ -58,13 +63,13 @@
             <div class = "driverscore">
                 <div class = "middle">
                     <div class="left">
-                        <h4>DriveScore</h4>
+                        <h4>Safety Score</h4>
                         <h3>Powered by Sensify©</h3>
                     </div>
                         <div class="gauge">
                         <div class="gauge__body">
-                            <div :style="{'transform': 'rotate('+this.score/20+'turn)'}" class="gauge__fill"></div>
-                            <div class="gauge__cover"> {{this.score}} </div>
+                            <div :style="{'transform': 'rotate('+this.selectedDriver.safety_score/20+'turn)'}" class="gauge__fill"></div>
+                            <div class="gauge__cover"> {{parseFloat(this.selectedDriver.safety_score).toFixed(2)}} </div>
                         </div>
                         </div>
                 </div>
@@ -79,7 +84,7 @@
             :center="center"
             :zoom="12"
             map-type-id="hybrid"
-            style="width: 500px; height: 300px"
+            style="height: 300px"
             >
             <GMapCluster>
             <GMapMarker
@@ -132,7 +137,8 @@ export default {
     */ 
     this.SensifyPredictionData = require('../assets/json_datasets/SensifyPredictionData.json');
     console.log(this.SensifyPredictionData);
-    this.CustomerData = require('../assets/json_datasets/CustomerData.json');
+    this.JoinedPredictionData = require('../assets/json_datasets/JoinedPredictionData.json');
+    this.selectedDriver = this.JoinedPredictionData[0];
     console.log(this.user)
     if(this.user.username==="29a5a8d7-b0c8-46b1-a4b7-017450156893"){
         this.business_user === true;
@@ -141,16 +147,9 @@ export default {
   data() {
     return {
       SensifyPredictionData: {},
-      CustomerData: {},
+      selectedDriver: {},
+      JoinedPredictionData: {},
       center: {lat: 41.902782, lng: 12.496366},
-      id: 10101,
-      name: "Paolo",
-      surname: "Venti",
-      dateofbirth: "19/09/1993",
-      manufacturer: "Mercedes-Benz",
-      model: "Class A",
-      score : "5.0",
-      business_user : false,
       accident : 3,
       items : [{it : "Location"},
                 {it : "Time"},
@@ -202,6 +201,10 @@ export default {
     --padding-1: 1.2rem;
 
     --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.dashboard-wrapper {
+    padding: 3rem;
 }
 
 /* ------------------ main --------------*/
@@ -321,6 +324,13 @@ main{
         grid-template-columns: 1fr;
         gap: 1.6rem;
     }
+    .map {
+        width: 100% !important;
+    }
+
+    .history {
+        width: 100% !important;
+    }
 }
 
 .row{
@@ -339,12 +349,12 @@ main{
 }
 
 .row .map {
-    width: 550px;
+    width: 40%;
     align-items: center;
 }
 
 .row .history {
-    width: 800px;
+    width: 57%;
     align-items: center;
 }
 
