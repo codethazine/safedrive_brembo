@@ -1,10 +1,11 @@
 <template>
     <div class="dashboard-wrapper">
-    <div v-if = "this.business_user" class = "dropdown">
+    <div v-if="!this.business_user" class="dropdown">
+        <div>Business User</div>
         <div class="form-group-dropdown">
-            <select class="form-control" v-model="selectedcollection">
+            <select class="form-control" v-model="this.CustomerData">
               <option value="">Select a collection</option>
-              <option v-bind:key="collection.id" v-for="collection in getOnlyGenerated(this.collections)" :value="collection">{{collection.name}}</option>
+              <option v-bind:key="Customer.id" v-for="Customer in this.CustomerData" :value="Customer">{{Customer.name}}</option>
             </select>
           </div>
     </div>
