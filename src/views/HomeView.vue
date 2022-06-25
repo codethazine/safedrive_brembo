@@ -43,7 +43,7 @@ export default {
     position: absolute;
     overflow: hidden;
     background-size: cover;
-    background-image: url("https://lh3.googleusercontent.com/09N0-Q9MIMm7yGcdLIk7O5p7ZFGb_BgiY8IIV1SjAanirnh-81t39LfKtmGLRm5JmJ3_jTKBBnC9OtEp35aYlyEsyNRIKrdR99Gi4w=s250");
+    background-image: url("../assets/safedrive-bg.jpg");
     background-color: rgb(255, 255, 255);
     background-position: center center;
     opacity: 0.3;

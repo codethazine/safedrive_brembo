@@ -1,0 +1,31 @@
+id,driver_id,firstname,lastname,birthday,oem,car_model,plate_number,n_accidents
+1,1,Demetris,Jenness,1977-08-15,Tesla,Model 3,FH463DH,1
+2,2,Christian,Marsden,1977-11-21,Mercedes,C-Class,EH327KF,3
+3,3,Nollie,Dulciana,1991-05-18,Mercedes,A-Class AMG,DJ738JL,5
+4,4,Patricia,Dorothy,2000-10-15,Mercedes,A-Class AMG,CB049ND,2
+5,5,Julieta,Adore,1962-01-21,Mercedes,C-Class,EA854FW,0
+6,6,Lacie,Wolfgram,1999-02-19,Toyota,GT86,BE435JW,0
+7,7,Dorice,Lumbard,1980-06-05,Mercedes,C-Class,EB866SY,0
+8,8,Juliane,Esmaria,1962-06-14,Toyota,Yaris,DD163ER,3
+9,9,Kalina,Barney,2001-08-31,Tesla,Model 3,DA243HJ,8
+10,10,Feliza,Margret,1999-09-11,Tesla,Model S,CA078FE,7
+11,11,Jasmina,Orlene,1996-08-09,Mercedes,G-Class,CT345EW,0
+12,12,Misha,Goldina,1997-12-16,Toyota,RAV4,CG455HR,8
+13,13,Evita,Dulciana,1995-11-16,Tesla,Model 3,ER767JY,0
+14,14,Aigneis,Bivins,1994-09-18,Volkswagen,Tiguan,GG243UJ,0
+15,15,Doro,Martsen,1982-06-14,Toyota,RAV4,EQ455JU,3
+16,16,Priscilla,Percy,1964-02-03,Tesla,Model S,FF876KI,3
+17,17,Elie,Vernier,1996-08-22,Volkswagen,Golf,FQ986FE,4
+18,18,Brana,Hamil,1984-12-12,Volkswagen,Golf,EU465DW,1
+19,19,Lanna,Ellerey,1983-02-21,Volkswagen,Golf,CR422BV,1
+20,20,Lusa,Margret,1968-07-25,Mercedes,C-Class,FG234DS,0
+21,21,Ilse,Vanni,1997-02-04,Tesla,Model S,CT345WE,0
+22,22,Jaime,Faria,1994-04-19,Tesla,Model 3,CG454CE,3
+23,23,Jillayne,Bivins,1971-03-16,Mercedes,G-Class,ER324FD,0
+24,24,Rhoda,Anselmi,1979-05-22,Mercedes,A-Class AMG,GG546WD,4
+25,25,Marnia,Peg,1992-05-23,Mercedes,A-Class AMG,EQ654EE,0
+26,26,Jeanna,Manolo,1967-01-29,Toyota,RAV4,FF879WE,4
+27,27,Tina,Emmy,1998-05-27,Volkswagen,Polo,FQ989HG,0
+28,28,Adele,Forrer,1969-11-25,Toyota,RAV4,EU090FG,0
+29,29,Elka,Ferrell,2000-05-20,Volkswagen,Tiguan,FG233EW,0
+30,30,Linet,Baylor,1970-05-07,Tesla,Model S,FY342GR,9

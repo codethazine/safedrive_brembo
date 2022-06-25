@@ -5,6 +5,7 @@ export const onCreateSensifyInputData = /* GraphQL */ `
   subscription OnCreateSensifyInputData {
     onCreateSensifyInputData {
       id
+      driver_id
       AccX
       AccY
       AccZ
@@ -29,6 +30,7 @@ export const onUpdateSensifyInputData = /* GraphQL */ `
   subscription OnUpdateSensifyInputData {
     onUpdateSensifyInputData {
       id
+      driver_id
       AccX
       AccY
       AccZ
@@ -53,6 +55,7 @@ export const onDeleteSensifyInputData = /* GraphQL */ `
   subscription OnDeleteSensifyInputData {
     onDeleteSensifyInputData {
       id
+      driver_id
       AccX
       AccY
       AccZ
@@ -77,6 +80,7 @@ export const onCreateSensifyPredictionData = /* GraphQL */ `
   subscription OnCreateSensifyPredictionData {
     onCreateSensifyPredictionData {
       id
+      driver_id
       AccX
       AccY
       AccZ
@@ -102,6 +106,7 @@ export const onUpdateSensifyPredictionData = /* GraphQL */ `
   subscription OnUpdateSensifyPredictionData {
     onUpdateSensifyPredictionData {
       id
+      driver_id
       AccX
       AccY
       AccZ
@@ -127,6 +132,7 @@ export const onDeleteSensifyPredictionData = /* GraphQL */ `
   subscription OnDeleteSensifyPredictionData {
     onDeleteSensifyPredictionData {
       id
+      driver_id
       AccX
       AccY
       AccZ

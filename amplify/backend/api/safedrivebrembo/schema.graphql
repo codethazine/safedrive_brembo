@@ -3,7 +3,8 @@
 input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
 
 type SensifyInputData @model {
-  id: ID!
+  id: Int
+  driver_id: Int
   AccX: Float
   AccY: Float
   AccZ: Float
@@ -22,7 +23,8 @@ type SensifyInputData @model {
 }
 
 type SensifyPredictionData @model {
-  id: ID!
+  id: Int
+  driver_id: Int
   AccX: Float
   AccY: Float
   AccZ: Float
@@ -39,4 +41,16 @@ type SensifyPredictionData @model {
   sprint: Float
   delta_wheel_speed: Float
   safety_score: Float
+}
+
+type CustomerData @model {
+  id: Int
+  driver_id: Int
+  firstname: String
+  lastname: String
+  birthday: String
+  oem: String
+  car_model: String
+  plate_number: String
+  n_accidents: Int
 }
