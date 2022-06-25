@@ -1,12 +1,12 @@
 <template>
-    <div v-if = "!this.user" class = "dropdown">
+    <!-----<div v-if = "!this.user" class = "dropdown">
         <div class="form-group-dropdown">
             <select class="form-control" v-model="selectedcollection">
               <option value="">Select a collection</option>
               <option v-bind:key="collection.id" v-for="collection in getOnlyGenerated(this.collections)" :value="collection">{{collection.name}}</option>
             </select>
           </div>
-    </div>
+    </div>--->
         <div class = "insights">
             <div class = "anag">
                 <div class = "middle">
@@ -35,42 +35,42 @@
                 </div>
             </div>
             <!-----------End of anag ----------->
-                <div class = "c2">
-                    <div class = "middle">
-                        <div class="left">
-                            <h4>My Car</h4>
-                            <div class="car-container">
+            <div class = "car">
+                <div class = "middle">
+                    <div class="left">
+                        <h4>My Car</h4>
+                        <div class="car-container">
                             <div class="car-title">Manufacturer:</div> 
                             <div>{{this.manufacturer}}</div>
                         </div>
-                         <div class="car-container">
+                        <div class="car-container">
                             <div class="car-model">Model: </div> 
                             <div>{{this.model}}</div>
                         </div>
-                        </div>
-                        <img class="car-logo" alt="car-logo" :src="require(`/logos/optimized/${this.manufacturer.toLowerCase()}.png`)" width="120" height="80">
                     </div>
-                    <small class = "text-muted">Insurance issued on: 06-11-2021 </small>
+                        <img class="car-logo" alt="car-logo" :src="require(`/logos/${this.manufacturer.toLowerCase()}.png`)" width="120" height="80">
                 </div>
-            <!-----------End of c1 ----------->
-                <div class = "ds">
-                    <div class = "middle">
-                        <div class="left">
-                            <h4>DriveScore</h4>
-                            <h3>Powered by Sensify©</h3>
-                        </div>
+                <small class = "text-muted">Insurance issued on: 06-11-2021 </small>
+            </div>
+            <!-----------End of car ----------->
+            <div class = "driverscore">
+                <div class = "middle">
+                    <div class="left">
+                        <h4>DriveScore</h4>
+                        <h3>Powered by Sensify©</h3>
+                    </div>
                         <div class="gauge">
                         <div class="gauge__body">
                             <div :style="{'transform': 'rotate('+this.score/20+'turn)'}" class="gauge__fill"></div>
                             <div class="gauge__cover"> {{this.score}} </div>
                         </div>
                         </div>
-                    </div>
+                </div>
                 <small class = "text-muted">Updated weekly</small>
             </div>
-            <!-----------End of c2 ----------->
+            <!-----------End of driverscore ----------->
         </div>
-        <!--End of insights-->
+        <!----End of insights---->
     <div class = "row">   
         <div class = "map">
             <GMapMap
@@ -118,9 +118,6 @@
 export default {
 
   name: 'App',
-  mounted: {
-
-  },
   data() {
     return {
       center: {lat: 41.902782, lng: 12.496366},
@@ -152,6 +149,46 @@ export default {
 }
 </script>
 <style>
+
+/* ------------------ root --------------*/
+
+:root{
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-1: 0.8rem;
+    --border-radius-1: 1.2rem;
+
+    --card-padding: 2rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+/* ------------------ main --------------*/
+
+main{
+    margin-top: 1.4rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+}
+
+.anag{
+    height: 200px;
+}
 
 .noAcc{
     margin-top: 2rem;
@@ -209,31 +246,6 @@ export default {
     align-items: center;
 }
 
-:root{
-    --color-primary: #7380ec;
-    --color-danger: #ff7782;
-    --color-success: #41f1b6;
-    --color-warning: #ffbb55;
-    --color-white: #fff;
-    --color-info-dark: #7d8da1;
-    --color-info-light: #dce1eb;
-    --color-dark: #363949;
-    --color-light: rgba(132, 139, 200, 0.18);
-    --color-primary-variant: #111e88;
-    --color-dark-variant: #677483;
-    --color-background: #f6f6f9;
-
-    --card-border-radius: 2rem;
-    --border-radius-1: 0.4rem;
-    --border-radius-1: 0.8rem;
-    --border-radius-1: 1.2rem;
-
-    --card-padding: 2rem;
-    --padding-1: 1.2rem;
-
-    --box-shadow: 0 2rem 3rem var(--color-light);
-}
-
 .text-muted{
     color: var(--color-info-dark)
 }
@@ -272,8 +284,16 @@ main{
 
 .insights{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 0.5fr);
     gap: 1.6rem;
+}
+
+@media screen and (max-width: 850px) {
+    .insights {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+    }
 }
 
 .row{
@@ -310,6 +330,7 @@ main{
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
     margin-top: 1rem;
+    margin-bottom: 3rem;
     box-shadow: var(--box-shadow);
     transition: all 300ms ease;
 }
