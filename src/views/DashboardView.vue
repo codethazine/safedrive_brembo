@@ -1,6 +1,6 @@
 <template>
     <div class="dashboard-wrapper">
-    <div v-if="!this.business_user" class="dropdown">
+    <div v-if="this.business_user" class="dropdown">
         <div>
             <div style="font-size: 2.5rem; font-weight: bold;">Business Dashboard</div>
             <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; width: 100%;">
@@ -141,7 +141,7 @@ export default {
     this.selectedDriver = this.JoinedPredictionData[0];
     console.log(this.user)
     if(this.user.username==="29a5a8d7-b0c8-46b1-a4b7-017450156893"){
-        this.business_user === true;
+        this.business_user = true;
     }
   },
   data() {
