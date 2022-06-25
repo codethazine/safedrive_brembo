@@ -15,7 +15,7 @@ filename = './CustomerData.csv'
   plate_number: String
   n_accidents: Int
 '''
-
+import datetime
 def convert_csv_to_json_list(file):
     items = []
     with open(file) as csvfile:
@@ -31,6 +31,8 @@ def convert_csv_to_json_list(file):
             data['car_model'] = row['car_model']
             data['plate_number'] = row['plate_number']
             data['n_accidents'] = row['n_accidents']
+            data['createdAt'] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            data['updatedAt'] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             items.append(data)
     return items
 

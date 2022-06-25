@@ -1,5 +1,6 @@
 <template>
-    <!-----<div v-if = "!this.user" class = "dropdown">
+    <div class="dashboard-wrapper">
+    <div v-if = "this.business_user" class = "dropdown">
         <div class="form-group-dropdown">
             <select class="form-control" v-model="selectedcollection">
               <option value="">Select a collection</option>
@@ -8,7 +9,7 @@
           </div>
     </div>--->
         <div class = "insights">
-            <div class = "anag">
+            <div class = "anag thirty-percent">
                 <div class = "middle">
                     <div class="left">
                         <h4>Anagraphics</h4>
@@ -110,16 +111,36 @@
             <div v-else class = "noAcc"> No accidents to be shown </div>
         </div>
     </div>
+</div>
 </template>
 
 <script>
+import { API, graphqlOperation } from "aws-amplify";
+import * as queries from "../graphql/queries";
+import { mapGetters } from 'vuex';
+
 
 
 export default {
 
   name: 'App',
+  async mounted() {
+    /* TO-DO: Currently we'll go with json dumps in the assets folder.
+    this.SensifyPredictionData = await API.graphql(graphqlOperation(queries.listSensifyPredictionData));
+    console.log(this.SensifyPredictionData);
+    */ 
+    this.SensifyPredictionData = require('../assets/json_datasets/SensifyPredictionData.json');
+    console.log(this.SensifyPredictionData);
+    this.CustomerData = require('../assets/json_datasets/CustomerData.json');
+    console.log(this.user)
+    if(this.user.username==="29a5a8d7-b0c8-46b1-a4b7-017450156893"){
+        this.business_user === true;
+    }
+  },
   data() {
     return {
+      SensifyPredictionData: {},
+      CustomerData: {},
       center: {lat: 41.902782, lng: 12.496366},
       id: 10101,
       name: "Paolo",
@@ -128,7 +149,7 @@ export default {
       manufacturer: "Mercedes-Benz",
       model: "Class A",
       score : "5.0",
-      user : false,
+      business_user : false,
       accident : 3,
       items : [{it : "Location"},
                 {it : "Time"},
@@ -145,7 +166,12 @@ export default {
         }, // Along list of clusters
       ]
     }
-  }
+  },
+  computed: {
+    ...mapGetters({
+        user: "auth/user",
+        }),
+    },
 }
 </script>
 <style>
