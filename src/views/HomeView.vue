@@ -3,7 +3,7 @@
     <div class="featured-background-container">
     </div>
     <div class="home-content">
-      <div class="content-right">
+      <div class="content-left">
         <h1>SafeDrive</h1>
         <p>Tailored insurance packages for enhanced driver safety.
           <br>Powered by Sensify.
@@ -29,13 +29,13 @@
       </div>
       <div class="tech-content">
         <div class="content-right-alt">
-          <h1>AI-powered metrics.</h1>
+          <h1>AI-powered metrics</h1>
           <p>
             Sensify allows us to collect an unprecedented amount of real time data from your car. 
             <br>We use that data to determine what your driving style is.
           </p>
         </div>
-        <img style="height: 50%;" src="../assets/architecture-transparent.png">
+        <img class="transparent-img" src="../assets/architecture-transparent.png">
       </div>
     </section>
       <section id = 'team'>
@@ -147,7 +147,7 @@ export default {
     background-color: rgb(255, 255, 255);
     background-position: center center;
     opacity: 0.5;
-    filter: blur(3px);
+    
     --webkit-mask: linear-gradient(rgb(255, 255, 255), transparent);
     z-index: -1;
 }
@@ -180,9 +180,15 @@ export default {
 .content-right-alt{
   color: white;
 }
+
+.content-right-alt p{
+  color: white;
+}
+
 .content-right {
   width: 60%;
   border-radius: 20px;
+
 }
 .tech-content{
   display: flex;
@@ -366,5 +372,89 @@ body {
 }
 .panel {
   display: none;
+}
+
+.content-left {
+  width: 40%;
+}
+
+.transparent-img {
+  height: 50%;
+}
+
+@media screen and (max-width: 840px) {
+  .transparent-img {
+      width: 100%;
+      height: auto;
+  }
+
+    .home {
+      padding: 0px 20px;
+    }
+
+    .featured-background-container {
+      margin-left: -20px !important;
+      margin-right: -20px !important;
+    }
+
+    p {
+      color: black;
+    }
+
+    .architecture {
+      width: 100%;
+    }
+    .tech-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      height: 83vh;
+      }
+
+      .content-right {
+        display: none;
+      }
+
+      .tech-background-container {
+        margin-left: -20px !important;
+        margin-right: -20px !important;
+      }
+
+      .card {
+        width: 100%;
+      }
+
+      .cards-container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .faqs-title-container {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .faqs-desc {
+        width: 100%;
+      }
+
+      .pricing-row-title {
+        flex-direction: column;
+      } 
+      .home-content {
+        /*flex-direction: column;*/
+        
+      }
+      
+      .content-left {
+        width: 100%;
+      }
+
+      .img-dash {
+          width: 100%;
+      }
+
+
 }
 </style>
