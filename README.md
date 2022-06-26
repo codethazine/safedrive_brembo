@@ -1,4 +1,11 @@
-# safedrive_brembo
+# SafeDrive powered by Sensify
+
+## Test the app at the following link
+```
+https://main.d33i4g2duott3m.amplifyapp.com/
+```
+
+
 
 ## Project setup
 ```
