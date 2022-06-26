@@ -39,15 +39,13 @@
         <i style="cursor: pointer; margin-left: 0px !important;" class="material-icons" @click="this.isMobileHeaderOpen = false;">clear</i>
         <router-link to="/">HOME</router-link>
         <div class="mobile-header-links">
-            <router-link to="/my-collections">NFT GENERATOR</router-link>
-            <router-link to="/collection-deployer">NFT DEPLOYER</router-link>
-            <router-link :to="{ path: '/', hash: '#features' }">FEATURES</router-link>
-            <router-link :to="{ path: '/', hash: '#pricing' }">PRICING</router-link>
+            <router-link class="header-link" :to="{ path: '/', hash: '#technology' }">TECHNOLOGY</router-link>
+            <router-link class="header-link" :to="{ path: '/', hash: '#team' }">TEAM</router-link>
+            <router-link class="header-link" :to="{ path: '/', hash: '#faqs' }">FAQs</router-link>
         </div>
         <div class="mobile-header-links">
-            <router-link v-if="!user" to="/log-in">LOG-IN</router-link>
-            <router-link v-if="!user" to="/my-collections/untitled-collection-1">GET STARTED</router-link>
-            <router-link v-if="user" to="/account">ACCOUNT</router-link>
+            <router-link v-if="!user" to="/login">LOGIN</router-link>
+            <router-link v-if="!user" to="/login">GET STARTED</router-link>
             <a style="cursor: pointer" v-if="user" @click="logout">SIGN-OUT</a>
         </div>
     </div>
@@ -103,6 +101,7 @@ export default {
 
 .mobile-header-container a {
     text-decoration: none;
+    color: black;
 }
 .header-logo {
     width: auto;
