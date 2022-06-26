@@ -14,6 +14,9 @@
             </div>
         </div>
     </div>
+    <div v-else>
+        <div style="font-size: 2.5rem; font-weight: bold;">User Dashboard</div>
+    </div>
         <div class = "insights">
             <div class = "anag thirty-percent">
                 <div class = "middle">
@@ -200,7 +203,7 @@ export default {
     --card-padding: 2rem;
     --padding-1: 1.2rem;
 
-    --box-shadow: 0 2rem 3rem var(--color-light);
+    --box-shadow: 0 0.2rem 0.5rem var(--color-light);
 }
 
 .dashboard-wrapper {
