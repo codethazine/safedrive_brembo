@@ -4,7 +4,7 @@
         <div>
             <div style="font-size: 2.5rem; font-weight: bold;">Business Dashboard</div>
             <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; width: 100%;">
-            <div style="font-size: 2.5rem; font-family: 'Times New Roman', Times, serif; color: #c11c16;">Principali</div>
+            <div style="font-size: 2.5rem; font-family: 'Times New Roman', Times, serif; color: #c11c16;">Principali S.p.A.</div>
             <div style="width: 70%" class="form-group-dropdown">
                 <select class="form-control" v-model="this.selectedDriver">
                 <option value="">Select a driver</option>
