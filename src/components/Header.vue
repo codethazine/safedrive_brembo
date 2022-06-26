@@ -39,9 +39,9 @@
         <i style="cursor: pointer; margin-left: 0px !important;" class="material-icons" @click="this.isMobileHeaderOpen = false;">clear</i>
         <router-link to="/">HOME</router-link>
         <div class="mobile-header-links">
-            <router-link class="header-link" :to="{ path: '/', hash: '#technology' }">TECHNOLOGY</router-link>
-            <router-link class="header-link" :to="{ path: '/', hash: '#team' }">TEAM</router-link>
-            <router-link class="header-link" :to="{ path: '/', hash: '#faqs' }">FAQs</router-link>
+            <router-link :to="{ path: '/', hash: '#technology' }">TECHNOLOGY</router-link>
+            <router-link :to="{ path: '/', hash: '#team' }">TEAM</router-link>
+            <router-link :to="{ path: '/', hash: '#faqs' }">FAQs</router-link>
         </div>
         <div class="mobile-header-links">
             <router-link v-if="!user" to="/login">LOGIN</router-link>
